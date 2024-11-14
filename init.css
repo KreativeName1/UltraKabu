@@ -176,17 +176,26 @@ div.form-group label {
         margin: 10px 10px 15px 0px !important;
 }
 
-#timerText, #mebisButton {
-    width: 200px;
+#timerText, .interface-button {
+    width: 150px;
     height: 37px;
     background-color: var(--timerBackgound);
     border-radius: 4px;
     display: inline-flex;
+    border: #1f2124 1px solid;
     justify-content: center;
     align-items: center;
     font-weight: bold;
     font-size: 16px;
     color: var(--white);
+}
+
+#timerText {
+    width: 200px;
+}
+.interface-button:hover {
+    background-color: #1f2124;
+    cursor: pointer;
 }
 
 a.navbar-brand:hover,

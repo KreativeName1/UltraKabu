@@ -68,3 +68,10 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     return true;
   }
 });
+
+// Open the options page when the user clicks the settings button in the interface
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+  if (request.action === 'openOptionsPage') {
+      chrome.runtime.openOptionsPage();
+  }
+});

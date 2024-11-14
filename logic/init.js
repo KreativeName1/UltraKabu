@@ -25,7 +25,7 @@ function init() {
     }
     if (urlpath.includes("Stundenplan") || urlpath.includes("Main")) {
         createTimer();
-        createMebisButton();
+        createButtons();
         activeColor(getColor());
         mainLoop();
     }

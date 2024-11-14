@@ -161,22 +161,24 @@ function calculateTimeDiff() {
             `${Math.floor(timeDiff / 60000)}m ${Math.floor((timeDiff % 60000) / 1000)}s`;
 }
 
-
-// Creates a "Mebis" button in the interface
-function createMebisButton() {
+// Create Buttons in the interface
+function createButtons() {
     const box = document.getElementById("stdplanheading") || document.querySelector('div[style="margin-left:10px;"]');
     if (box) {
-        const mebisButton = Object.assign(document.createElement('button'), {
-            textContent: 'Mebis',
-            id: 'mebisButton',
-            style: {
-                padding: '10px 20px',
-                fontSize: '16px',
-                cursor: 'pointer'
-            },
-            onclick: () => window.open('https://portal.bycs.de/', '_blank')
+        const buttons = [
+            { text: 'Einstellungen',  onclick: () => chrome.runtime.sendMessage({ action: 'openOptionsPage' }) },
+            { text: 'Mebis', onclick: () => window.open('https://portal.bycs.de/', '_blank') },
+            { text: 'Nextcloud', onclick: () => window.open('https://bszw.selfhost.bz/', '_blank') }
+            // More buttons can be added here (maybe add a way to configure them in the settings)
+        ];
+
+        buttons.forEach(({ text, id, onclick }) => {
+            const button = document.createElement('button');
+            button.classList.add('interface-button');
+            button.textContent = text;
+            button.onclick = onclick;
+            box.appendChild(button);
         });
-        box.appendChild(mebisButton);
     }
 }
 
