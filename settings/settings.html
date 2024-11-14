@@ -1,0 +1,78 @@
+<html>
+  <head>
+    <title>Einstellungen</title>
+    <meta charset="UTF-8">
+    <script src="jquery-3.7.1.min.js"></script>
+    <script src="../logic/properties.js"></script>
+    <script src="settings.js" defer></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="settings.css" />
+  </head>
+  <body>
+    <div class="grid">
+      <form class="form max-width">
+        <h1>Dunkelmodus</h1>
+        <label for="darkmodeBackground">Hintergrundfarbe</label>
+        <input type="color" class="form-control" id="darkmodeBackground" name="darkmodeBackground">
+        <label for="darkmodeNav">Navigationsfarbe</label>
+        <input type="color" class="form-control" id="darkmodeNav" name="darkmodeNav">
+        <label for="darkmodePlan">Planfarbe</label>
+        <input type="color" class="form-control" id="darkmodePlan" name="darkmodePlan">
+        <label for="darkmodeLesson">Stundenfarbe</label>
+        <input type="color" class="form-control" id="darkmodeLesson" name="darkmodeLesson">
+        <label for="darkmodeHourOverlay">Stundenüberlagerung</label>
+        <input type="color" class="form-control" id="darkmodeHourOverlay" name="darkmodeHourOverlay">
+        <label for="darkmodeHourCanceled">Stunde abgesagt</label>
+        <input type="color" class="form-control" id="darkmodeHourCanceled" name="darkmodeHourCanceled">
+        <label for="darkmodeHourChanged">Stunde geändert</label>
+        <input type="color" class="form-control" id="darkmodeHourChanged" name="darkmodeHourChanged">
+        <label for="darkmodeWhite">Weiß</label>
+        <input type="color" class="form-control" id="darkmodeWhite" name="darkmodeWhite">
+        <label for="darkmodeActiveTab">Aktiver Tab</label>
+        <input type="color" class="form-control" id="darkmodeActiveTab" name="darkmodeActiveTab">
+        <label for="darkmodeGlyphicon">Glyphicon</label>
+        <input type="color" class="form-control" id="darkmodeGlyphicon" name="darkmodeGlyphicon">
+        <label for="darkmodeTimerBackground">Timer Hintergrund</label>
+        <input type="color" class="form-control" id="darkmodeTimerBackground" name="darkmodeTimerBackground">
+      </form>
+
+      <form class="form max-width">
+        <h1>Hellmodus</h1>
+        <label for="lightmodeBackground">Hintergrundfarbe</label>
+        <input type="color" class="form-control" id="lightmodeBackground" name="lightmodeBackground">
+        <label for="lightmodeNav">Navigationsfarbe</label>
+        <input type="color" class="form-control" id="lightmodeNav" name="lightmodeNav">
+        <label for="lightmodePlan">Planfarbe</label>
+        <input type="color" class="form-control" id="lightmodePlan" name="lightmodePlan">
+        <label for="lightmodeLesson">Stundenfarbe</label>
+        <input type="color" class="form-control" id="lightmodeLesson" name="lightmodeLesson">
+        <label for="lightmodeHourOverlay">Stundenüberlagerung</label>
+        <input type="color" class="form-control" id="lightmodeHourOverlay" name="lightmodeHourOverlay">
+        <label for="lightmodeHourCanceled">Stunde abgesagt</label>
+        <input type="color" class="form-control" id="lightmodeHourCanceled" name="lightmodeHourCanceled">
+        <label for="lightmodeHourChanged">Stunde geändert</label>
+        <input type="color" class="form-control" id="lightmodeHourChanged" name="lightmodeHourChanged">
+        <label for="lightmodeWhite">Weiß</label>
+        <input type="color" class="form-control" id="lightmodeWhite" name="lightmodeWhite">
+        <label for="lightmodeActiveTab">Aktiver Tab</label>
+        <input type="color" class="form-control" id="lightmodeActiveTab" name="lightmodeActiveTab">
+        <label for="lightmodeGlyphicon">Glyphicon</label>
+        <input type="color" class="form-control" id="lightmodeGlyphicon" name="lightmodeGlyphicon">
+        <label for="lightmodeTimerBackground">Timer Hintergrund</label>
+        <input type="color" class="form-control" id="lightmodeTimerBackground" name="lightmodeTimerBackground">
+      </form>
+    </div>
+
+    <form>
+      <h1>Stunden</h1>
+      <div id="lessons">
+      </div>
+    </form>
+
+    <div class="options">
+     <button type="button" id="addLesson">Hinzufügen</button>
+     <button id="save">Speichern</button>
+     <button id="reset">Zurücksetzen</button>
+    </div>
+  </body>
+</html>

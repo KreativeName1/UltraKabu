@@ -32,7 +32,8 @@ function login(username, password) {
 }
 
 // Toggles the visual mode between light and dark
-function toggleVisualMode(darkMode) {
+async function toggleVisualMode(darkMode) {
+    await initializeProperties();
     const colors = darkMode ? darkModeColor : whiteModeColor;
     document.documentElement.style.setProperty('--navColor', colors.navColor);
     document.documentElement.style.setProperty('--backgroundColor', colors.backgroundColor);
@@ -160,6 +161,7 @@ function calculateTimeDiff() {
             `${Math.floor(timeDiff / 60000)}m ${Math.floor((timeDiff % 60000) / 1000)}s`;
 }
 
+
 // Creates a "Mebis" button in the interface
 function createMebisButton() {
     const box = document.getElementById("stdplanheading") || document.querySelector('div[style="margin-left:10px;"]');
@@ -179,7 +181,8 @@ function createMebisButton() {
 }
 
 // Paints the lessons in the table based on the defined color
-function paintLessons() {
+async function paintLessons() {
+    await initializeProperties();
     box = document.getElementById("umgebung");
     if (box === null || box === undefined) return;
 

@@ -101,6 +101,10 @@ function setLoginEncKey(key) {
     document.getElementById('loginEncKey').value = key;
 }
 
+document.getElementById('openSettings').addEventListener('click', () => {
+    chrome.runtime.openOptionsPage();
+  });
+
 
 
 function showError(id, message) {
