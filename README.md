@@ -1,14 +1,14 @@
 # BestKabu Browser Extension
-A Simple Browser extension that makes Digikabu.de better. This is a Fork of [@ouihq](https://github.com/ouihq/betterKabu)
+A Simple Browser extension that makes Digikabu.de better. This is a Fork of [@Random-user420](https://github.com/Random-user420/bestKabu)
 
-# Usage
+## Usage
+#### Chrome:
+  1. Download Source Code
+  1. Enable Developer Mode
+  2. Import unpacked extension
 
-### Chromium: [here](https://chromewebstore.google.com/detail/bestkabu/okajcjigbfoadcmmhckdpbopohdkhcpg)
-### Firefox: Use the .xpi file in the latest -fire release
-**Note:** If you find a relayable way to install the Extension on Firefox on andorid, please let me know. It already should work fine in debugger mode.
-
-## Lesson highlighting
-**Note:** Please submit (create an github issue) your school lesson abbreviations to mark them in color 
+#### Firefox
+Currently not working on Firefox (no idea why, all scripts refuse to load)
 
 ## Login by Extension
 
@@ -33,16 +33,18 @@ A Simple Browser extension that makes Digikabu.de better. This is a Fork of [@ou
 **Note:** If no username or password is entered, the existing credentials won't be overwritten.
 
 ## Preview
-![](./screenshots/schedule.png)
+![Schedule](https://github.com/user-attachments/assets/b11e871a-b80a-4a25-9d0d-d7c601955fad)
 
-## Colorpicker
-To change the color of the highlighting: Open the Extension on the digikabu.de website and enter a HEX code in the input field. If you don't know them from memory, click on the link and copy the HEX code from there. A HEX code is always a "#" and 6 digits, that can be "0,1,2,...9, A, B, C, D, E, F".
+![Settings](https://github.com/user-attachments/assets/89869f1a-4448-4167-af7a-287768c6a828)
+
 
 ## Current features:
 - Dark mode toggle
 - Login by Extension to make login faster
 - Custom highlighting
 - Time remaining until the next lesson
+- Full color customization of themes and lessons
+- Buttons/Links for Mebis, Nextcloud, ...
 
 # Contribution Guide
 
@@ -64,12 +66,3 @@ The Makefile is for packaging and only works on Linux. Just ignore it if you're 
 #### Chromium
 
     $ make pack-chr
-
-**contact: bestkabu@vleov.de**
-
-## Contributors ✨
-
-<p>Thanks to all the contributors who helped improve this project:</p>
-<a href="https://github.com/Random-user420/bestKabu/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Random-user420/bestKabu" />
-</a>
