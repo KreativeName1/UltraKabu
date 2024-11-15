@@ -1,6 +1,5 @@
 {
     "hourOverColor": "grey",
-    "defaultHighlightColor": "#4281ff",
     "darkModeColor": {
       "navColor": "#1f2124",
       "backgroundColor": "#292b30",
@@ -12,7 +11,8 @@
       "white": "#DDDDDD",
       "activeTab": "#ffffff",
       "glyphicon": "#ffffff",
-      "timerBackgound": "#434549"
+      "timerBackgound": "#434549",
+      "highlightColor": "#4281ff"
     },
     "whiteModeColor": {
       "navColor": "#767174",
@@ -25,7 +25,8 @@
       "white": "#000000",
       "activeTab": "#000000",
       "glyphicon": "#ffffff",
-      "timerBackgound": "#A3A5A9"
+      "timerBackgound": "#A3A5A9",
+      "highlightColor": "#4281ff"
     },
     "lessonColor": {
       "PuG": "#612f00",

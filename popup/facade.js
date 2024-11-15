@@ -1,8 +1,3 @@
-
-document.getElementById('changeColorBtn').addEventListener('click', () => {
-    colorButtonEvent();
-});
-
 document.getElementById('loginCheckbox').addEventListener('click', () => {
     loginCheckboxEvent();
 });
@@ -32,10 +27,6 @@ document.getElementById('darkModeToggle').addEventListener('click', () => {
 });
 
 
-
-function getColorInput() {
-    return document.getElementById('colorInput').value;
-}
 
 function setPopupState(state) {
     document.getElementById("mainPopup").hidden = !state;

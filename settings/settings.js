@@ -29,11 +29,13 @@ $(document).ready(async function() {
   $('#lightmodeGlyphicon').val(whiteModeColor.glyphicon);
   $('#lightmodeTimerBackground').val(whiteModeColor.timerBackgound);
 
+  $('#darkmodeHighlightColor').val(darkModeColor.highlightColor);
+  $('#lightmodeHighlightColor').val(whiteModeColor.highlightColor);
+
 
   console.log(lessonColor);
   // add the lessons into #lessons (name, color, remove button)
   for (const [colorName, colorCode] of Object.entries(lessonColor)) {
-    console.log(colorName, colorCode);
     $('#lessons').append(`<div class="lesson" id="${colorName}">
                             <input type="text" value="${colorName}" class="lessonName">
                             <input type="color" value="${colorCode}" class="lessonColor">
@@ -73,7 +75,6 @@ async function saveConfig() {
   // get the colors from the input fields
   const config = {
     hourOverColor: hourOverColor,
-    defaultHighlightColor: defaultHighlightColor,
     darkModeColor: {
       backgroundColor: $('#darkmodeBackground').val(),
       navColor: $('#darkmodeNav').val(),
@@ -85,7 +86,8 @@ async function saveConfig() {
       white: $('#darkmodeWhite').val(),
       activeTab: $('#darkmodeActiveTab').val(),
       glyphicon: $('#darkmodeGlyphicon').val(),
-      timerBackgound: $('#darkmodeTimerBackground').val()
+      timerBackgound: $('#darkmodeTimerBackground').val(),
+      highlightColor: $('#darkmodeHighlightColor').val()
     },
     whiteModeColor: {
       backgroundColor: $('#lightmodeBackground').val(),
@@ -98,7 +100,8 @@ async function saveConfig() {
       white: $('#lightmodeWhite').val(),
       activeTab: $('#lightmodeActiveTab').val(),
       glyphicon: $('#lightmodeGlyphicon').val(),
-      timerBackgound: $('#lightmodeTimerBackground').val()
+      timerBackgound: $('#lightmodeTimerBackground').val(),
+      highlightColor: $('#lightmodeHighlightColor').val()
     }
   };
 

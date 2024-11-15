@@ -68,12 +68,6 @@ getPopupInitState();
 
 // Events
 
-function colorButtonEvent() {
-    setValues('colorButtonEvent', {
-        color: getColorInput()
-    }, colorButtonCallback);
-}
-
 function colorButtonCallback(response) {
     if (response !== undefined) {
         if (response.failedInputValidation === true) {

@@ -35,6 +35,7 @@ function login(username, password) {
 async function toggleVisualMode(darkMode) {
     await initializeProperties();
     const colors = darkMode ? darkModeColor : whiteModeColor;
+    document.documentElement.style.setProperty('--weekdayToday', colors.highlightColor);
     document.documentElement.style.setProperty('--navColor', colors.navColor);
     document.documentElement.style.setProperty('--backgroundColor', colors.backgroundColor);
     document.documentElement.style.setProperty('--planColor', colors.planColor);

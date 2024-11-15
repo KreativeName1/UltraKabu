@@ -1,5 +1,5 @@
 let hourOverColor;
-let defaultHighlightColor;
+let HighlightColor;
 let darkModeColor;
 let whiteModeColor;
 let lessonColor;
@@ -11,7 +11,6 @@ await loadConfig().then((config) => {
   console.log('Config loaded:', config);
 
   hourOverColor = config.hourOverColor;
-  defaultHighlightColor = config.defaultHighlightColor
   darkModeColor = {
     backgroundColor: config.darkModeColor.backgroundColor,
     navColor:  config.darkModeColor.navColor,
@@ -24,6 +23,7 @@ await loadConfig().then((config) => {
     activeTab: config.darkModeColor.activeTab,
     glyphicon: config.darkModeColor.glyphicon,
     timerBackgound: config.darkModeColor.timerBackgound,
+    highlightColor: config.darkModeColor.highlightColor
   }
   whiteModeColor = {
     backgroundColor: config.whiteModeColor.backgroundColor,
@@ -36,7 +36,8 @@ await loadConfig().then((config) => {
     white: config.whiteModeColor.white,
     activeTab: config.whiteModeColor.activeTab,
     glyphicon: config.whiteModeColor.glyphicon,
-    timerBackgound: config.whiteModeColor.timerBackgound
+    timerBackgound: config.whiteModeColor.timerBackgound,
+    highlightColor: config.whiteModeColor.highlightColor
   }
 
 // Load the lesson colors
