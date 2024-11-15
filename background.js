@@ -1,5 +1,7 @@
 //* SERVICE WORKER
-
+if (typeof browser == "undefined") {
+  globalThis.browser = chrome;
+}
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   console.log('onMessage');
 

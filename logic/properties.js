@@ -3,7 +3,9 @@ let defaultHighlightColor;
 let darkModeColor;
 let whiteModeColor;
 let lessonColor;
-
+if (typeof browser == "undefined") {
+  globalThis.browser = chrome;
+}
 async function initializeProperties() {
 await loadConfig().then((config) => {
   console.log('Config loaded:', config);
@@ -53,9 +55,9 @@ try {
 // Load the config from the background script
 async function loadConfig() {
   return new Promise((resolve, reject) => {
-    chrome.runtime.sendMessage({ action: 'getProperties' }, (response) => {
-      if (chrome.runtime.lastError) {
-        reject(chrome.runtime.lastError);
+    browser.runtime.sendMessage({ action: 'getProperties' }, (response) => {
+      if (browser.runtime.lastError) {
+        reject(browser.runtime.lastError);
       } else if (response.error) {
         reject(response.error);
       } else {

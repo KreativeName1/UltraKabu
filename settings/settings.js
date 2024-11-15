@@ -1,3 +1,7 @@
+if (typeof browser == "undefined") {
+  globalThis.browser = chrome;
+}
+
 $(document).ready(async function() {
   await initializeProperties();
 
@@ -60,7 +64,7 @@ $(document).ready(async function() {
 });
 
 async function resetConfig() {
-  await chrome.runtime.sendMessage({ action: 'resetProperties' });
+  await browser.runtime.sendMessage({ action: 'resetProperties' });
   location.reload();
 }
 
@@ -109,7 +113,7 @@ async function saveConfig() {
   config.lessonColor = lessonColor;
 
   // send the config to the background script
-  await chrome.runtime.sendMessage({ action: 'updateProperties', config });
+  await browser.runtime.sendMessage({ action: 'updateProperties', config });
   location.reload();
 }
 
