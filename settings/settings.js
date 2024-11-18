@@ -39,7 +39,7 @@ $(document).ready(async function() {
     $('#lessons').append(`<div class="lesson" id="${colorName}">
                             <input type="text" value="${colorName}" class="lessonName">
                             <input type="color" value="${colorCode}" class="lessonColor">
-                            <button class="removeLesson">Remove</button>
+                            <button class="removeLesson">Entfernen</button>
                           </div>`);
 
     // add event listener to remove button
@@ -53,7 +53,7 @@ $(document).ready(async function() {
     $('#lessons').append(`<div class="lesson">
                             <input type="text" value="" class="lessonName">
                             <input type="color" value="#000000" class="lessonColor">
-                            <button class="removeLesson">Remove</button>
+                            <button class="removeLesson">Entfernen</button>
                           </div>`);
     $('.removeLesson').on("click", function() {
       $(this).parent().remove();
@@ -62,6 +62,8 @@ $(document).ready(async function() {
 
   $('#save').on("click", saveConfig);
   $('#reset').on("click", resetConfig);
+  $('#export').on("click", exportConfig);
+  $('#import').on("click", importConfig);
 
 });
 
@@ -120,4 +122,36 @@ async function saveConfig() {
   location.reload();
 }
 
+function exportConfig() {
 
+  browser.runtime.sendMessage({ action: 'getProperties' }).then(config => {
+    // create a blob with the config
+    const blob = new Blob([JSON.stringify(config)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+
+    // create a link to download the blob
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'config.json';
+    a.click();
+    URL.revokeObjectURL(url);
+  });
+}
+
+function importConfig() {
+
+  // get the file from the input field
+  const file = document.getElementById('importFile').files[0];
+  if (!file) { alert('Bitte eine Datei auswählen'); return; }
+
+  // read the file
+  const reader = new FileReader();
+  reader.readAsText(file);
+  reader.onload = async function() {
+    const config = JSON.parse(reader.result);
+
+    // send the config to the background script
+    await browser.runtime.sendMessage({ action: 'updateProperties', config });
+    location.reload();
+  };
+}

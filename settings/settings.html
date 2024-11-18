@@ -10,7 +10,7 @@
   </head>
   <body>
     <div class="grid">
-      <form class="form max-width">
+      <form class="form max-width border">
         <h1>Dunkelmodus</h1>
         <label for="darkmodeBackground">Hintergrundfarbe</label>
         <input type="color" class="form-control" id="darkmodeBackground" name="darkmodeBackground">
@@ -38,7 +38,7 @@
         <input type="color" class="form-control" id="darkmodeHighlightColor" name="darkmodeHighlightColor">
       </form>
 
-      <form class="form max-width">
+      <form class="form max-width border">
         <h1>Hellmodus</h1>
         <label for="lightmodeBackground">Hintergrundfarbe</label>
         <input type="color" class="form-control" id="lightmodeBackground" name="lightmodeBackground">
@@ -66,16 +66,20 @@
         <input type="color" class="form-control" id="lightmodeHighlightColor" name="lightmodeHighlightColor">
       </form>
     </div>
-    <form>
+    <form class="border lessons-form">
       <h1>Stunden</h1>
       <div id="lessons">
       </div>
+      <button type="button" id="addLesson">Hinzufügen</button>
     </form>
 
-    <div class="options">
-     <button type="button" id="addLesson">Hinzufügen</button>
+    <div class="options border">
      <button id="save">Speichern</button>
      <button id="reset">Zurücksetzen</button>
+     <button id="export">Exportieren</button>
+      <input type="file" id="importFile" accept=".json">
+      <button id="import">Importieren</button>
+
     </div>
   </body>
 </html>
