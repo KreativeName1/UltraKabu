@@ -34,8 +34,8 @@ Currently not working on Firefox (no idea why, all scripts refuse to load)
 
 ## Preview
 ![Schedule](https://github.com/user-attachments/assets/b11e871a-b80a-4a25-9d0d-d7c601955fad)
+![Settings](https://github.com/user-attachments/assets/87e33a3e-abdf-4193-a585-621f62001e6b)
 
-![Settings](https://github.com/user-attachments/assets/89869f1a-4448-4167-af7a-287768c6a828)
 
 
 ## Current features:
@@ -44,6 +44,7 @@ Currently not working on Firefox (no idea why, all scripts refuse to load)
 - Custom highlighting
 - Time remaining until the next lesson
 - Full color customization of themes and lessons
+- Import/Export of settings
 - Buttons/Links for Mebis, Nextcloud, ...
 
 # Contribution Guide
