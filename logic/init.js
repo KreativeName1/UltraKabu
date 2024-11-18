@@ -14,11 +14,11 @@ if (
 
 
 function init() {
+    toggleVisualMode(isDarkModeState());
     urlpath = window.location.pathname;
     if (urlpath.includes("SchulaufgabenPlan")) {
         markCurrentDay();
     }
-    toggleVisualMode(isDarkModeState());
     if (urlpath.includes("Stundenplan")) {
         callHidePassedDays();
         highlightLessons();
@@ -45,5 +45,5 @@ let urlpath = window.location.pathname;
 
 
 window.addEventListener("pageshow", () => {
-    setTimeout(init, 800);
+    setTimeout(init, 50);
 });
