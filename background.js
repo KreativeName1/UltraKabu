@@ -2,14 +2,14 @@
 if (typeof browser == "undefined") {
   globalThis.browser = chrome;
 }
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
   console.log('onMessage');
 
   // Get the config from the file properties.json
   if (request.action === 'getConfig') {
     console.log('getConfig');
-    console.log(chrome.runtime.getURL('properties.json'));
-      fetch(chrome.runtime.getURL('properties.json'))
+    console.log(browser.runtime.getURL('properties.json'));
+      fetch(browser.runtime.getURL('properties.json'))
           .then(response => response.json())
           .then(config => {
               sendResponse(config);
@@ -25,7 +25,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.action === 'updateProperties') {
     console.log('updateProperties');
     console.log(request.config);
-    chrome.storage.local.set({ config: request.config });
+    browser.storage.local.set({ config: request.config });
     sendResponse({ success: true });
     return true;
   }
@@ -34,15 +34,15 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   // If it doesn't exist, load the default config from properties.json into local storage
   if (request.action === 'getProperties') {
     console.log('getProperties');
-    chrome.storage.local.get('config', (config) => {
+    browser.storage.local.get('config', (config) => {
       if (config.config) {
         sendResponse(config.config);
       } else {
         console.log('Config not found in local storage. Loading default config');
-        fetch(chrome.runtime.getURL('properties.json'))
+        fetch(browser.runtime.getURL('properties.json'))
           .then(response => response.json())
           .then(config => {
-            chrome.storage.local.set({ config });
+            browser.storage.local.set({ config });
             sendResponse(config);
           })
           .catch(error => {
@@ -57,10 +57,10 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   // Reset the config in local storage to the default config from properties.json
   if (request.action === 'resetProperties') {
     console.log('resetProperties');
-    fetch(chrome.runtime.getURL('properties.json'))
+    fetch(browser.runtime.getURL('properties.json'))
       .then(response => response.json())
       .then(config => {
-        chrome.storage.local.set({ config });
+        browser.storage.local.set({ config });
         sendResponse({ success: true });
       })
       .catch(error => {
@@ -72,8 +72,8 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 });
 
 // Open the options page when the user clicks the settings button in the interface
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.action === 'openOptionsPage') {
-      chrome.runtime.openOptionsPage();
+      browser.runtime.openOptionsPage();
   }
 });

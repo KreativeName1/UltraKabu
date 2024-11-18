@@ -26,7 +26,6 @@ function init() {
     if (urlpath.includes("Stundenplan") || urlpath.includes("Main")) {
         createTimer();
         createButtons();
-        activeColor(getColor());
         mainLoop();
     }
     if ((urlpath === "/" || urlpath.includes("Login")) && isLoginState() && !isEncLoginState()) {

@@ -1,21 +1,3 @@
-function setColor(value) {
-    if (validateColor(value.color)) {
-        store('color', value.color);
-        activeColor(value.color);
-        return false;
-    }
-    else {
-        return true;
-    }
-}
-
-function getColor() {
-    return validateColor(retrieve('color')) ? retrieve('color') : defaultHighlightColor;
-}
-
-function activeColor(color) {
-    document.documentElement.style.setProperty('--weekdayToday', color);
-}
 
 function setLoginState(state) {
     store('loginState', state.setLoginState);

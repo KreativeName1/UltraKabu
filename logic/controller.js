@@ -1,8 +1,3 @@
-// Validates if the color is in hexadecimal format
-function validateColor(color) {
-    return /^#([0-9A-Fa-f]{6})$/.test(color);
-}
-
 // Validates login values based on the encryption state
 function validateLogin(values) {
     return ((isEncLoginState() && values.encKey !== "") ?
