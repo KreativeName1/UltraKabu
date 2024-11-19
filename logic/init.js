@@ -13,7 +13,7 @@ if (
 }
 
 
-function init() {
+ function init() {
     urlpath = window.location.pathname;
     if (urlpath.includes("SchulaufgabenPlan")) {
         markCurrentDay();
@@ -44,7 +44,8 @@ function mainLoop() {
 let urlpath = window.location.pathname;
 
 
-window.addEventListener("pageshow", () => {
+window.addEventListener("pageshow", async () => {
+  await initializeProperties();
   toggleVisualMode(isDarkModeState());
     setTimeout(init, 100);
 });

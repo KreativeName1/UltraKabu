@@ -28,7 +28,6 @@ function login(username, password) {
 
 // Toggles the visual mode between light and dark
 async function toggleVisualMode(darkMode) {
-    await initializeProperties();
     const colors = darkMode ? darkModeColor : whiteModeColor;
     document.documentElement.style.setProperty('--weekdayToday', colors.highlightColor);
     document.documentElement.style.setProperty('--navColor', colors.navColor);

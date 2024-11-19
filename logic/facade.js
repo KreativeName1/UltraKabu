@@ -65,7 +65,7 @@ function isDarkModeState() {
 }
 
 async function highlightLessons() {
-  await initializeProperties();
+  
     if (urlpath.includes("Stundenplan")) {
         paintLessons();
     }
