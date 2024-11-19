@@ -46,7 +46,7 @@ async function toggleVisualMode(darkMode) {
 
 // Marks the current day in the table
 function markCurrentDay() {
-    const date = new Date().toLocaleDateString("de-DE");
+    const date = new Date().toLocaleDateString("de-DE", { day: "2-digit", month: "2-digit" }).replace(/\./g, ".");
 
     const tables = document.getElementsByTagName("table");
     for (const table of tables) {
@@ -54,7 +54,7 @@ function markCurrentDay() {
         for (const row of rows) {
             const strong = row.querySelector("strong");
             if (strong?.textContent.includes(date)) {
-                row.style.backgroundColor = color;
+                row.style.backgroundColor = "var(--weekdayToday)";
                 return;
             }
         }
