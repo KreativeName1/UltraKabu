@@ -26,6 +26,7 @@ function init() {
         createTimer();
         createButtons();
         mainLoop();
+        highlightLessons();
     }
     if ((urlpath === "/" || urlpath.includes("Login")) && isLoginState() && !isEncLoginState()) {
         loginUnenc();

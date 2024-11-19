@@ -180,7 +180,6 @@ function createButtons() {
 
 // Paints the lessons in the table based on the defined color
 async function paintLessons() {
-    await initializeProperties();
     box = document.getElementById("umgebung");
     if (box === null || box === undefined) return;
 
@@ -196,4 +195,16 @@ async function paintLessons() {
             j++;
         }
     }
+}
+
+async function paintLessonsMain() {
+  box = document.getElementById("umgebung");
+  if (box === null || box === undefined) return;
+  box = box.children[0].children[1].children[1];
+  for (let i = 1; i < 6; i++) {
+    let color = lessonColor[box.children[i].children[4].textContent];
+    if (color !== undefined) {
+      box.children[i].children[1].setAttribute("style", `fill: ${color} !important;`);
+    }
+  }
 }
