@@ -179,14 +179,14 @@ function createButtons() {
 
 // Paints the lessons in the table based on the defined color
 async function paintLessons() {
-    box = document.getElementById("umgebung");
+    let box = document.getElementById("umgebung");
     if (box === null || box === undefined) return;
 
     for (let i = 1; i < 6; i++) {
         let j = 1;
         while (box.children[i].children[j] !== null && box.children[i].children[j] !== undefined) {
             if (box.children[i].children[j].children[1].classList.contains("regStd")) {
-                color = lessonColor[box.children[i].children[j].children[4].textContent];
+                let color = lessonColor[box.children[i].children[j].children[4].textContent];
                 if (color !== undefined) {
                     box.children[i].children[j].children[1].setAttribute("style", `fill: ${color} !important;`);
                 }
@@ -197,13 +197,13 @@ async function paintLessons() {
 }
 
 async function paintLessonsMain() {
-  box = document.getElementById("umgebung");
+  let box = document.getElementById("umgebung");
   if (box === null || box === undefined) return;
   box = box.children[0].children[1].children[1];
-  for (let i = 1; i < 6; i++) {
+  for (let i = 0; i < box.children.length; i++) {
+    if (!box.children[i].children[1].classList.contains("regStd")) continue;
     let color = lessonColor[box.children[i].children[4].textContent];
-    if (color !== undefined) {
-      box.children[i].children[1].setAttribute("style", `fill: ${color} !important;`);
-    }
+    if (color === undefined ) continue;
+    box.children[i].children[1].setAttribute("style", `fill: ${color} !important;`);
   }
 }
