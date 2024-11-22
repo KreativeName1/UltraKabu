@@ -32,12 +32,6 @@ Currently not working on Firefox (no idea why, all scripts refuse to load)
    
 **Note:** If no username or password is entered, the existing credentials won't be overwritten.
 
-## Preview
-![Schedule](https://github.com/user-attachments/assets/b11e871a-b80a-4a25-9d0d-d7c601955fad)
-![Settings](https://github.com/user-attachments/assets/87e33a3e-abdf-4193-a585-621f62001e6b)
-
-
-
 ## Current features:
 - Dark mode toggle
 - Login by Extension to make login faster
@@ -46,6 +40,12 @@ Currently not working on Firefox (no idea why, all scripts refuse to load)
 - Full color customization of themes and lessons
 - Import/Export of settings
 - Buttons/Links for Mebis, Nextcloud, ...
+
+## Preview
+![Schedule](https://github.com/user-attachments/assets/b11e871a-b80a-4a25-9d0d-d7c601955fad)
+![Settings](https://github.com/user-attachments/assets/87e33a3e-abdf-4193-a585-621f62001e6b)
+![Main](https://github.com/user-attachments/assets/5f391d9b-5e2e-4015-8bb8-249141005938)
+
 
 # Contribution Guide
 
