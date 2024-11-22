@@ -28,6 +28,9 @@ if (
         mainLoop();
         highlightLessons();
     }
+    if (urlpath.includes("Main")) {
+        paintAppointments();
+    }
     if ((urlpath === "/" || urlpath.includes("Login")) && isLoginState() && !isEncLoginState()) {
         loginUnenc();
     }

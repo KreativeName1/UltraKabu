@@ -27,7 +27,7 @@ function login(username, password) {
 }
 
 // Toggles the visual mode between light and dark
-async function toggleVisualMode(darkMode) {
+function toggleVisualMode(darkMode) {
     const colors = darkMode ? darkModeColor : whiteModeColor;
     document.documentElement.style.setProperty('--weekdayToday', colors.highlightColor);
     document.documentElement.style.setProperty('--navColor', colors.navColor);
@@ -178,7 +178,7 @@ function createButtons() {
 }
 
 // Paints the lessons in the table based on the defined color
-async function paintLessons() {
+ function paintLessons() {
     let box = document.getElementById("umgebung");
     if (box === null || box === undefined) return;
 
@@ -196,7 +196,8 @@ async function paintLessons() {
     }
 }
 
-async function paintLessonsMain() {
+// Paints the lessons in the main page
+function paintLessonsMain() {
   let box = document.getElementById("umgebung");
   if (box === null || box === undefined) return;
   box = box.children[0].children[1].children[1];
@@ -206,4 +207,18 @@ async function paintLessonsMain() {
     if (color === undefined ) continue;
     box.children[i].children[1].setAttribute("style", `fill: ${color} !important;`);
   }
+}
+
+// Paints the appointments in the table in the main page
+function paintAppointments() {
+    let box = document.getElementById("umgebung");
+    if (box === null || box === undefined) return;
+    let table = box.children[1].children[1];
+    const cells = table.querySelectorAll("td");
+    cells.forEach(cell => {
+        if (cell.style.color === 'red') {
+            cell.style.color = "";
+            cell.style.backgroundColor = "var(--weekdayToday)";
+        }
+    });
 }

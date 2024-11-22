@@ -64,7 +64,7 @@ function isDarkModeState() {
     return retrieveBool('darkmodeState');
 }
 
-async function highlightLessons() {
+function highlightLessons() {
   
     if (urlpath.includes("Stundenplan")) {
         paintLessons();
