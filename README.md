@@ -1,5 +1,5 @@
-# BestKabu Browser Extension
-A Simple Browser extension that makes Digikabu.de better. This is a Fork of [@Random-user420](https://github.com/Random-user420/bestKabu)
+# UltraKabu Browser Extension
+A Browser extension that makes Digikabu.de better. This is a Fork of [@Random-user420](https://github.com/Random-user420/bestKabu)
 
 ## Usage
 #### Chrome:
@@ -8,7 +8,7 @@ A Simple Browser extension that makes Digikabu.de better. This is a Fork of [@Ra
   2. Import unpacked extension
 
 #### Firefox
-Currently not working on Firefox (no idea why, all scripts refuse to load)
+Currently not working on Firefox
 
 ## Login by Extension
 
@@ -39,12 +39,14 @@ Currently not working on Firefox (no idea why, all scripts refuse to load)
 - Time remaining until the next lesson
 - Full color customization of themes and lessons
 - Import/Export of settings
-- Buttons/Links for Mebis, Nextcloud, ...
+- Buttons/Links that can be customized
 
 ## Preview
 ![Schedule](https://github.com/user-attachments/assets/b11e871a-b80a-4a25-9d0d-d7c601955fad)
-![Settings](https://github.com/user-attachments/assets/87e33a3e-abdf-4193-a585-621f62001e6b)
 ![Main](https://github.com/user-attachments/assets/5f391d9b-5e2e-4015-8bb8-249141005938)
+![Settings](https://github.com/user-attachments/assets/3b55450b-60b0-45f0-ba58-b5dda9b7d2b2)
+
+
 
 
 # Contribution Guide
