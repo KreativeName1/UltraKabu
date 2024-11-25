@@ -214,3 +214,7 @@ input:checked + .slider:before {
 [hidden] {
     display: none !important;
 }
+
+.toggleDarkMode label {
+  font-size: 20px;
+}

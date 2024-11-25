@@ -1,64 +1,91 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UltraKabu</title>
     <link rel="stylesheet" href="popup.css">
 </head>
-
 <body>
-    <h3 data-value="BetterKabu">BestKabu</h3>
-    <p id="pBestKabu">Verwandelt Digikabu in BestKabu</p>
-    <hr class="sectionLine" width="50px">
-    <div hidden="true" id="mainPopup">
+<header>
+    <h1 data-value="BetterKabu">UltraKabu</h1>
+    <p id="pBestKabu">Verwandelt Digikabu in UltraKabu</p>
+    <hr class="sectionLine" aria-hidden="true">
+</header>
+
+<main>
+    <section id="mainPopup" hidden>
         <div>
-          <button class="styled-button" id="openSettings">Einstellungen</button>
+            <button class="styled-button" id="openSettings" aria-label="Einstellungen öffnen">Einstellungen</button>
         </div>
-        <hr class="sectionLine" width="50px">
-        <div class="autologin">
+        <hr class="sectionLine" style="width: 100px;" aria-hidden="true">
+
+        <!-- AutoLogin Section -->
+        <section class="autologin">
             <div style="break-inside: avoid;">
-                <input type="checkbox" id="loginCheckbox"/>
-                <b class="loginHeading">Login by Extension</b>
+                <input type="checkbox" id="loginCheckbox" aria-labelledby="loginCheckboxLabel">
+                <label id="loginCheckboxLabel" for="loginCheckbox" class="loginHeading">Login by Extension</label>
             </div>
+
             <div id="loginBody">
-                <p>Be aware of any <a style="color: wheat;"
-                        href="https://github.com/Random-user420/bestKabu?tab=readme-ov-file#autologin-setup"
-                        target="_blank">securety risks</a> by using this feature.</p>
-                <input type="checkbox" id="loginEncCheckbox">Enable Password Protection</input>
+                <p>
+                    Be aware of any
+                    <a href="https://github.com/Random-user420/bestKabu?tab=readme-ov-file#autologin-setup"
+                       target="_blank" style="color: wheat;">security risks</a>
+                    by using this feature.
+                </p>
+                <input type="checkbox" id="loginEncCheckbox" aria-labelledby="loginEncCheckboxLabel">
+                <label id="loginEncCheckboxLabel" for="loginEncCheckbox">Enable Password Protection</label>
                 <br>
                 <div id="autologin">
-                    <input class="styled-input" type="text" id="loginUsername" placeholder="Username" />
-                    <input class="styled-input" type="password" id="loginPassword" placeholder="Password" />
-                    <input class="styled-input" type="password" id="loginEncKey" placeholder="Encryption Password" hidden/>
-                    <div id="message-login" style="display: none;"></div>
+                    <label for="loginUsername" class="sr-only">Username</label>
+                    <input class="styled-input" type="text" id="loginUsername" placeholder="Username">
+
+                    <label for="loginPassword" class="sr-only">Password</label>
+                    <input class="styled-input" type="password" id="loginPassword" placeholder="Password">
+
+                    <label for="loginEncKey" class="sr-only">Encryption Password</label>
+                    <input class="styled-input" type="password" id="loginEncKey" placeholder="Encryption Password" hidden>
+
+                    <div id="message-login" style="display: none;" aria-live="polite"></div>
+
                     <div>
                         <button id="loginSaveButton" class="styled-button">Save Login</button>
                         <button id="loginDeleteButton" class="styled-button">Delete Login</button>
-                        <button hidden="true" id="loginEncButton" class="styled-button">Login</button>
+                        <button id="loginEncButton" class="styled-button" hidden>Login</button>
                     </div>
                 </div>
             </div>
-        </div>
-        <hr class="sectionLine" width="50px">
-        <div class="toggleDarkMode">
-            <h4>Toggle Dark Mode</h4>
+        </section>
+
+        <hr class="sectionLine" style="width: 100px;" aria-hidden="true">
+
+        <!-- Dark Mode Toggle -->
+        <section class="toggleDarkMode">
+            <label for="darkModeToggle">Toggle Dark Mode</label>
             <div class="toggleButton">
-                <img src="icons/sun-regular.svg" alt="sun icon" width="20px" height="20px">
+                <img src="icons/sun-regular.svg" alt="Sun Icon" width="20" height="20">
                 <label class="switch">
-                    <input type="checkbox" id="darkModeToggle">
+                    <input type="checkbox" id="darkModeToggle" aria-label="Toggle Dark Mode">
                     <span class="slider round"></span>
                 </label>
-                <img src="icons/moon-solid.svg" style="margin-left: 5px" width="20px" height="20px" alt="sun icon">
+                <img src="icons/moon-solid.svg" alt="Moon Icon" style="margin-left: 5px;" width="20" height="20">
             </div>
-        </div>
-    </div>
-    <div id="gotoPopup">
-        <h4>Go to <a href="https://www.digikabu.de/" target="_blank">digikabu.de</a> to use this extension</h4>
-    </div>
-</body>
+        </section>
+    </section>
+
+    <!-- Redirect Notice -->
+    <section id="gotoPopup">
+        <h2>
+            Go to
+            <a href="https://www.digikabu.de/" target="_blank">digikabu.de</a>
+            to use this extension
+        </h2>
+    </section>
+</main>
+
 <script src="facade.js"></script>
 <script src="controller.js"></script>
-
+</body>
 </html>

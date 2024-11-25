@@ -33,56 +33,120 @@ $(document).ready(async function() {
   $('#lightmodeHighlightColor').val(whiteModeColor.highlightColor);
 
   // add the lessons into #lessons (name, color, remove button)
+  let i = 1;
   for (const [colorName, colorCode] of Object.entries(lessonColor)) {
-    $('#lessons').append(`<div class="lesson" id="${colorName}">
-                            <input type="text" value="${colorName}" class="lessonName" />
-                            <input type="color" value="${colorCode}" class="lessonColor" />
-                            <button class="removeLesson">Entfernen</button>
-                          </div>`);
+    $('#lessons').append(`
+        <div class="lesson" id="${i}">
+            <label for="${i}-name" class="sr-only">Name der Stunde</label>
+            <input type="text" id="${i}-name" class="lessonName form-control" value="${colorName}" 
+                   aria-label="Name der Stunde ${i}" />
+
+            <label for="${i}-color" class="sr-only">Farbe der Stunde</label>
+            <input type="color" id="${i}-color" class="lessonColor form-control" value="${colorCode}" 
+                   aria-label="Farbe der Stunde ${i}" />
+
+            <button type="button" class="removeLesson btn btn-danger" aria-label="Stunde ${i} entfernen">
+                Entfernen
+            </button>
+        </div>
+    `);
+
 
     // add event listener to remove button
-    $(`#${colorName} .removeLesson`).on("click", function() {
-      $(`#${colorName}`).remove();
-    });
-  }
-
-  // add event listener to add lesson button
-  $('#addLesson').on("click", function() {
-    $('#lessons').append(`<div class="lesson">
-                            <input type="text" value="" class="lessonName" />
-                            <input type="color" value="#000000" class="lessonColor" />
-                            <button class="removeLesson">Entfernen</button>
-                          </div>`);
     $('.removeLesson').on("click", function() {
       $(this).parent().remove();
     });
-  });
+    i++;
+  }
+
+  // add event listener to add lesson button
+    $('#addLesson').on("click", function() {
+
+      let highestIndex = 0;
+        $('.lesson').each(function() {
+            const index = parseInt($(this).attr('id'));
+            if (index > highestIndex) highestIndex = index;
+        });
+
+        $('#lessons').append(`
+            <div class="lesson" id="${highestIndex+1}">
+                <label for="${highestIndex+1}-name" class="sr-only">Name der Stunde</label>
+                <input type="text" id="${highestIndex+1}-name" class="lessonName form-control" placeholder="Name" 
+                     aria-label="Name der Stunde ${highestIndex+1}" />
+    
+                <label for="${highestIndex+1}-color" class="sr-only">Farbe der Stunde</label>
+                <input type="color" id="${highestIndex+1}-color" class="lessonColor form-control" value="#000000" 
+                     aria-label="Farbe der Stunde ${highestIndex+1}" />
+    
+                <button type="button" class="removeLesson btn btn-danger" aria-label="Stunde ${highestIndex+1} entfernen">
+                    Entfernen
+                </button>
+            </div>
+        `);
+
+        // add event listener to remove button
+        $('.removeLesson').on("click", function() {
+            $(this).parent().remove();
+        });
+    });
+
+
 
   // show all links (name, href, remove button)
+   i = 1;
     for (const [name, href] of Object.entries(links)) {
-        $('#links').append(`<div class="link">
-                            <input type="text" class="form-control linkName" placeholder="Name" value="${name}" />
-                            <input type="text" class="form-control linkHref" placeholder="Link" value="${href}" />
-                            <button class="removeLink">Entfernen</button>
-                            </div>`);
+        $('#links').append(`
+          <div class="link">
+          <label for="link-name-${i}" class="sr-only">Linkname</label>
+          <input type="text" id="link-name-${i}" class="form-control linkName" placeholder="Name" value="${name}" 
+                 aria-label="Name des Links ${i}" />
+
+          <label for="link-href-${i}" class="sr-only">Linkadresse</label>
+          <input type="text" id="link-href-${i}" class="form-control linkHref" placeholder="Link" value="${href}" 
+                 aria-label="Adresse des Links ${i}" />
+
+          <button type="button" class="removeLink btn btn-danger" aria-label="Link ${i} entfernen">
+              Entfernen
+          </button>
+      </div>
+      `);
+
+        // add event listener to remove button
+        $('.removeLink').on("click", function() {
+            $(this).parent().remove();
+        });
+    }
+
+    // add event listener to add link button
+  $('#addLink').on("click", function() {
+    // get the highest index of the links
+    let highestIndex = 0;
+    $('.link').each(function() {
+      const index = parseInt($(this).find('.linkName').attr('id').split('-')[2]);
+      if (index > highestIndex) highestIndex = index;
+    });
+
+    $('#links').append(`
+        <div class="link">
+            <label for="link-name-${highestIndex + 1}" class="sr-only">Linkname</label>
+            <input type="text" id="link-name-${highestIndex + 1}" class="form-control linkName" placeholder="Name" 
+                     aria-label="Name des Links ${highestIndex + 1}" />
+    
+            <label for="link-href-${highestIndex + 1}" class="sr-only">Linkadresse</label>
+            <input type="text" id="link-href-${highestIndex + 1}" class="form-control linkHref" placeholder="Link" 
+                     aria-label="Adresse des Links ${highestIndex + 1}" />
+    
+            <button type="button" class="removeLink btn btn-danger" aria-label="Link ${highestIndex + 1} entfernen">
+                Entfernen
+            </button>
+        </div>
+        `);
 
         // add event listener to remove button
         $('.removeLink').on("click", function() {
         $(this).parent().remove();
         });
-    }
-
-    // add event listener to add link button
-    $('#addLink').on("click", function() {
-        $('#links').append(`<div class="link">
-                            <input type="text" class="form-control linkName" placeholder="Name" value="" />
-                            <input type="text" class="form-control linkHref" placeholder="Link" value="" />
-                            <button class="removeLink">Entfernen</button>
-                            </div>`);
-        $('.removeLink').on("click", function() {
-        $(this).parent().remove();
-        });
-    });
+  });
 
 
   $('#save').on("click", saveConfig);
