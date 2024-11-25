@@ -3,6 +3,7 @@ let HighlightColor;
 let darkModeColor;
 let whiteModeColor;
 let lessonColor;
+let links;
 if (typeof browser == "undefined") {
   globalThis.browser = chrome;
 }
@@ -40,17 +41,23 @@ await loadConfig().then((config) => {
     highlightColor: config.whiteModeColor.highlightColor
   }
 
-// Load the lesson colors
-try {
-  lessonColor = config.lessonColor;
-} catch (error) {
-  console.log("Error loading lesson colors: ", error);
-}
+    // Load the links
+    try {
+        links = config.links;
+    } catch (error) {
+        console.log("Error loading links: ", error);
+    }
+
+    // Load the lesson colors
+    try {
+      lessonColor = config.lessonColor;
+    } catch (error) {
+      console.log("Error loading lesson colors: ", error);
+    }
 })
 .catch((error) => {
   console.error('Error loading config:', error);
 });
-
 }
 
 // Load the config from the background script

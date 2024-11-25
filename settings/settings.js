@@ -32,13 +32,11 @@ $(document).ready(async function() {
   $('#darkmodeHighlightColor').val(darkModeColor.highlightColor);
   $('#lightmodeHighlightColor').val(whiteModeColor.highlightColor);
 
-
-  console.log(lessonColor);
   // add the lessons into #lessons (name, color, remove button)
   for (const [colorName, colorCode] of Object.entries(lessonColor)) {
     $('#lessons').append(`<div class="lesson" id="${colorName}">
-                            <input type="text" value="${colorName}" class="lessonName">
-                            <input type="color" value="${colorCode}" class="lessonColor">
+                            <input type="text" value="${colorName}" class="lessonName" />
+                            <input type="color" value="${colorCode}" class="lessonColor" />
                             <button class="removeLesson">Entfernen</button>
                           </div>`);
 
@@ -51,14 +49,41 @@ $(document).ready(async function() {
   // add event listener to add lesson button
   $('#addLesson').on("click", function() {
     $('#lessons').append(`<div class="lesson">
-                            <input type="text" value="" class="lessonName">
-                            <input type="color" value="#000000" class="lessonColor">
+                            <input type="text" value="" class="lessonName" />
+                            <input type="color" value="#000000" class="lessonColor" />
                             <button class="removeLesson">Entfernen</button>
                           </div>`);
     $('.removeLesson').on("click", function() {
       $(this).parent().remove();
     });
   });
+
+  // show all links (name, href, remove button)
+    for (const [name, href] of Object.entries(links)) {
+        $('#links').append(`<div class="link">
+                            <input type="text" class="form-control linkName" placeholder="Name" value="${name}" />
+                            <input type="text" class="form-control linkHref" placeholder="Link" value="${href}" />
+                            <button class="removeLink">Entfernen</button>
+                            </div>`);
+
+        // add event listener to remove button
+        $('.removeLink').on("click", function() {
+        $(this).parent().remove();
+        });
+    }
+
+    // add event listener to add link button
+    $('#addLink').on("click", function() {
+        $('#links').append(`<div class="link">
+                            <input type="text" class="form-control linkName" placeholder="Name" value="" />
+                            <input type="text" class="form-control linkHref" placeholder="Link" value="" />
+                            <button class="removeLink">Entfernen</button>
+                            </div>`);
+        $('.removeLink').on("click", function() {
+        $(this).parent().remove();
+        });
+    });
+
 
   $('#save').on("click", saveConfig);
   $('#reset').on("click", resetConfig);
@@ -116,6 +141,18 @@ async function saveConfig() {
     lessonColor[name] = color;
   });
   config.lessonColor = lessonColor;
+
+    // get the links from the input fields and add them to the config
+    let links = {};
+    $('.link').each(function() {
+        const name = $(this).find('.linkName').val();
+        const href = $(this).find('.linkHref').val();
+        console.log(name, href);
+        if (!name || !href) { alert('Bitte alle Felder füllen'); return; }
+        links[name] = href;
+    });
+    config.links = links;
+
 
   // send the config to the background script
   await browser.runtime.sendMessage({ action: 'updateProperties', config });

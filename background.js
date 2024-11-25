@@ -3,12 +3,9 @@ if (typeof browser == "undefined") {
   globalThis.browser = chrome;
 }
 browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
-  console.log('onMessage');
 
   // Get the config from the file properties.json
   if (request.action === 'getConfig') {
-    console.log('getConfig');
-    console.log(browser.runtime.getURL('properties.json'));
       fetch(browser.runtime.getURL('properties.json'))
           .then(response => response.json())
           .then(config => {
@@ -23,8 +20,6 @@ browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
   // Update the config in local storage
   if (request.action === 'updateProperties') {
-    console.log('updateProperties');
-    console.log(request.config);
     browser.storage.local.set({ config: request.config });
     sendResponse({ success: true });
     return true;
@@ -33,7 +28,6 @@ browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
   // Get the config from local storage.
   // If it doesn't exist, load the default config from properties.json into local storage
   if (request.action === 'getProperties') {
-    console.log('getProperties');
     browser.storage.local.get('config', (config) => {
       if (config.config) {
         sendResponse(config.config);
@@ -56,7 +50,6 @@ browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
   // Reset the config in local storage to the default config from properties.json
   if (request.action === 'resetProperties') {
-    console.log('resetProperties');
     fetch(browser.runtime.getURL('properties.json'))
       .then(response => response.json())
       .then(config => {

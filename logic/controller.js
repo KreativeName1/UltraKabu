@@ -160,12 +160,12 @@ function calculateTimeDiff() {
 function createButtons() {
     const box = document.getElementById("stdplanheading") || document.querySelector('div[style="margin-left:10px;"]');
     if (box) {
-        const buttons = [
+        let buttons = [
             { text: 'Einstellungen',  onclick: () => chrome.runtime.sendMessage({ action: 'openOptionsPage' }) },
-            { text: 'Mebis', onclick: () => window.open('https://portal.bycs.de/', '_blank') },
-            { text: 'Nextcloud', onclick: () => window.open('https://bszw.selfhost.bz/', '_blank') }
-            // More buttons can be added here (maybe add a way to configure them in the settings)
         ];
+        for (const [name, href] of Object.entries(links)) {
+            buttons.push({ text: name, onclick: () => window.open(href) });
+        }
 
         buttons.forEach(({ text, id, onclick }) => {
             const button = document.createElement('button');

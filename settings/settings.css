@@ -85,7 +85,7 @@ button:hover {
   margin-top: 1rem;
 }
 
-.lesson {
+.lesson, .link {
   display: grid;
   margin-inline: auto;
   grid-template-columns: 1fr 1fr 1fr;
@@ -95,7 +95,7 @@ button:hover {
   width: 25rem;
 }
 
-.lesson input[type="text"] {
+.lesson input[type="text"], .link input[type="text"] {
   background-color: #242424;
   border: 1px solid white;
   color: white;
